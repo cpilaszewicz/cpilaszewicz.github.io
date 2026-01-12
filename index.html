@@ -74,7 +74,35 @@
     <!-- Core JS-->
     <script type="text/javascript" src="static/js/scripts.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const element = document.getElementById("top-section-bg-text");
+        const finalText = element.dataset.text;
 
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+        const intervalTime = 10; // ms between updates
+        let iteration = 0;
+
+        const interval = setInterval(() => {
+            element.textContent = finalText
+                .split("")
+                .map((char, index) => {
+                    if (index < iteration) {
+                        return char;
+                    }
+                    return chars[Math.floor(Math.random() * chars.length)];
+                })
+                .join("");
+
+            iteration += 0.5;
+
+            if (iteration >= finalText.length) {
+                clearInterval(interval);
+                element.textContent = finalText;
+            }
+        }, intervalTime);
+    });
+    </script>
 </head>
 
 <body id="page-top">
