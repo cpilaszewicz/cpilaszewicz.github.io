@@ -1,6 +1,6 @@
 
 
-[![cpilaszewicz](https://img.shields.io/badge/SezzArt-GitHub-blue?logo=github)](https://github.com/SezzArt)
+[![cpilaszewicz](https://img.shields.io/badge/GitHub-blue?logo=github)](https://github.com/SezzArt)
 [![CV](https://img.shields.io/badge/CV-8A2BE2?logo=readthedocs)](/contents/CV.pdf)
 [![Scholar](https://img.shields.io/badge/Google%20Scholar-gray?logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=4Ql8ksQAAAAJ)
 [![Email Badge](https://img.shields.io/badge/cezary.pilaszewicz@gmail.com-green?logo=gmail)](mailto:cezary.pilaszewicz@gmail.com)
