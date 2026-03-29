@@ -14,7 +14,7 @@ I am currently enrolled as a PhD student at the Department of Mathematics and Co
 Cryptography, Cryptanalysis, IT Security, Quantum computation, Quantum algorithms
 
 #### Education
-PhD, Computer Science, Freie Universität Berlin, 2019—now.\
+PhD, Computer Science, Freie Universität Berlin, 2022—now.\
 M.Sc., Computer Science, Freie Universität Berlin, 2019—2022.\
 B.Sc., Mathematics, Freie Universität Berlin, 2014—2018.
 
