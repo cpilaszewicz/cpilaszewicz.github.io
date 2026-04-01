@@ -246,7 +246,7 @@ sup {
 }
 
 a {
-  color: var(--bs-link-color);
+  color: var(--link-colour);
   text-decoration: underline;
 }
 a:hover {
@@ -10897,6 +10897,32 @@ section {
   align-items: right;
   justify-content: right;
   position: relative;
+}
+
+.flaticon {
+  width: 50px; /* Makes the icon responsive */
+  height: 50px; /* Maintains aspect ratio */
+  /*filter: opacity(1) drop-shadow(0 0 0 azure);*/
+  /*filter: invert(100%) drop-shadow(0 0 0 rgb(58 126 180));*/
+  filter: invert(18%) sepia(97%) saturate(3184%) hue-rotate(206deg) brightness(93%) contrast(101%);
+}
+
+#publications-subtitle {
+  display: flex;
+  align-items: center;   /* vertically centers image and text */
+  gap: 8px;              /* space between icon and text */
+}
+
+#teaching-subtitle {
+  display: flex;
+  align-items: center;   /* vertically centers image and text */
+  gap: 8px;              /* space between icon and text */
+}
+
+#service-subtitle {
+  display: flex;
+  align-items: center;   /* vertically centers image and text */
+  gap: 8px;              /* space between icon and text */
 }
 
 
