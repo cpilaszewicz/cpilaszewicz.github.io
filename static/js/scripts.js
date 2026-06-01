@@ -1,8 +1,6 @@
-
-
 const content_dir = 'contents/'
 const config_file = 'config.yml'
-const section_names = ['home', 'publications', 'teaching', 'service']
+const section_names = ['home', 'publications', 'teaching', 'service', 'work']
 
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -14,7 +12,8 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#mainNav',
             offset: 74,
         });
-    };
+    }
+    ;
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -48,18 +47,32 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
     // Marked
-    marked.use({ mangle: false, headerIds: false })
+    marked.use({mangle: false, headerIds: false})
     section_names.forEach((name, idx) => {
         fetch(content_dir + name + '.md')
             .then(response => response.text())
             .then(markdown => {
+                if (name == "publications" && document.body.id != "publications-body") {
+                    var indexStartPublishedPapers = markdown.indexOf("#### Published")
+                    indexStartPublishedPapers = indexStartPublishedPapers + findNthOccurence(markdown.substring(indexStartPublishedPapers), 2, "\n") + 1 //2nd "\n" is after the header
+                    const indexEndRecentPublication = findNthOccurence(markdown.substring(indexStartPublishedPapers), 5, "\n") //7th "\n" is after 3rd paper
+                    markdown = markdown.substring(indexStartPublishedPapers, indexStartPublishedPapers + indexEndRecentPublication)
+                }
                 const html = marked.parse(markdown);
                 document.getElementById(name + '-md').innerHTML = html;
             }).then(() => {
-                // MathJax
-                MathJax.typeset();
-            })
+            // MathJax
+            MathJax.typeset();
+        })
             .catch(error => console.log(error));
     })
 
-}); 
+});
+const findNthOccurence = (string, nth, char) => {
+    let index = 0
+    for (let i = 0; i < nth; i += 1) {
+        if (index !== -1) index = string.indexOf(char, index + 1)
+    }
+    return index
+}
+

@@ -10843,7 +10843,7 @@ html {
 }
 
 .font-alt {
-  font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+  font-family: "Great Vibes", "Rouge Script", "Dancing Script", "Pinyon Script", "Kaushan Script", "Marck Script", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 .text-gradient {
@@ -10914,6 +10914,12 @@ section {
 }
 
 #teaching-subtitle {
+  display: flex;
+  align-items: center;   /* vertically centers image and text */
+  gap: 8px;              /* space between icon and text */
+}
+
+#work-subtitle {
   display: flex;
   align-items: center;   /* vertically centers image and text */
   gap: 8px;              /* space between icon and text */
