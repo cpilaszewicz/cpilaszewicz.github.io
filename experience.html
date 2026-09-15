@@ -72,6 +72,61 @@
     <script type="text/javascript" src="static/js/scripts.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
 
+    <!-- Hover underline in nav-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const nav = document.querySelector("#mainNav .navbar-nav");
+            const links = nav.querySelectorAll(".nav-link");
+            const indicator = nav.querySelector(".nav-indicator");
+
+            if (!nav || !indicator || !links.length) return;
+            function moveIndicator(link) {
+                const navRect = nav.getBoundingClientRect();
+                const linkRect = link.getBoundingClientRect();
+                // Position relative to the navbar list,
+                // which is already aligned to the right.
+                const left =
+                    linkRect.left -
+                    navRect.left +
+                    (linkRect.width - indicator.offsetWidth) / 2;
+                indicator.style.transform =
+                    `translateX(${left}px)`;
+            }
+            // Determine which page is currently active
+            const currentPath =
+                window.location.pathname.split("/").pop() || "index.html";
+            let activeLink = links[0];
+            links.forEach(link => {
+                const linkPath =
+                    new URL(link.href, window.location.origin)
+                        .pathname
+                        .split("/")
+                        .pop() || "index.html";
+                if (linkPath === currentPath) {
+                    activeLink = link;
+                }
+            });
+            // Put underline under current page
+            moveIndicator(activeLink);
+            // Slide underline when hovering
+            links.forEach(link => {
+
+                link.addEventListener("mouseenter", function () {
+                    moveIndicator(link);
+                });
+
+            });
+            // Return underline to active page
+            nav.addEventListener("mouseleave", function () {
+                moveIndicator(activeLink);
+            });
+            // Recalculate position if window changes size
+            window.addEventListener("resize", function () {
+                moveIndicator(activeLink);
+            });
+        });
+    </script>
 </head>
 
 <body id="experience-body">
@@ -79,29 +134,48 @@
 <!-- Navigation-->
 <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
     <div class="container px-5">
-<!--                    <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top"></a>-->
-<!--         <a href="#page-top"><img src="static/assets/img/CUMT_LOGO.svg" style="width: 11rem;"></a>-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
             MENU
             <i class="bi-list"></i>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
+
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+
                 <li class="nav-item">
-                    <a class="nav-link me-lg-3" href="index.html#page-top">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link me-lg-3" href="publications.html#publications">PUBLICATIONS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link me-lg-3" href="experience.html#experience">EXPERIENCE</a>
+                    <a class="nav-link me-lg-3" href="index.html#page-top">
+                        HOME
+                    </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link me-lg-3" href="publications.html#publications">
+                        PUBLICATIONS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link me-lg-3" href="experience.html#experience">
+                        EXPERIENCE
+                    </a>
+                </li>
+
+                <!-- The moving underline -->
+                <span class="nav-indicator"></span>
+
             </ul>
+
         </div>
     </div>
 </nav>
+
 <!-- Top Section -->
 <section class="top-section" style="background-image: url('static/assets/img/porto_view.jpg');">
 </section>
