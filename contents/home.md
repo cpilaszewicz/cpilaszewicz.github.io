@@ -11,6 +11,8 @@ During this time, I earned my PhD from the Department of Mathematics and Compute
 
 Before pursuing an academic career, I worked for several years as an Android software developer, gaining extensive experience in mobile application development and software engineering.
 
+Outside academia, [I grow things](garden.html).
+
 #### Research Interests
 Cryptography, Cryptanalysis, IT Security, Quantum computation, Quantum algorithms
 
