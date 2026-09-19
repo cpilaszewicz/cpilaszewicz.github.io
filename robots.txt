@@ -1,0 +1,3 @@
+User-agent: *
+   Allow: /
+   Sitemap: https://cpilaszewicz.github.io/sitemap.xml
