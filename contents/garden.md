@@ -14,7 +14,7 @@
 
 # September 2026
 
-![September tomatoes](static/assets/img/garden/2026-09.jpeg)
+![September update](static/assets/img/garden/2026-09.jpeg)
 
 I am almost done with the new pathway.
 
